@@ -1,0 +1,185 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This template was created by a master's student Alina Steshenko in 2022. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt, table, twoside]{article}
+
+%UTF8-koding av Unicode for å kode norske bokstaver
+\usepackage[utf8]{inputenc}
+
+% Font similar to Calibri (uncomment for Times New Roman)
+\usepackage[sfdefault]{carlito}
+
+%Setting document-size (margins) 
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm, bindingoffset=2cm]{geometry}
+
+
+% Graphics
+\usepackage{graphicx,wrapfig,lipsum}
+%So that graphicx package works properly on each subfile
+\graphicspath{{Figures/}{../Figures/}}
+\usepackage{subfig}
+
+%Clickable cross-references and hyperlinks
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+
+%Flexible bibliography support
+%\usepackage[numbers]{natbib}
+\usepackage{cite}
+\usepackage{apacite}
+
+%Per-file compilation package
+\usepackage{subfiles}
+
+%PDFs
+\usepackage[final]{pdfpages}
+\usepackage{pdflscape}
+
+%Tables
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx,multirow}
+\newcommand*\rot{\rotatebox[origin=c]{90}}
+
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{ctable} % for \specialrule command
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+%\usepackage[table]{xcolor}
+
+%Customising captions in floating environments
+\usepackage{caption}
+%for subfigures
+%\usepackage{subcaption}
+
+%List package
+\usepackage{enumitem}
+%math package, matrices
+\usepackage{amsmath}
+%Makes it possible to add non-formatted text
+\usepackage{listings}
+
+%Footnote options
+\usepackage{duckuments} % dummy content
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0pt} % no line between document and header
+\fancyhead{} % clear header
+\fancyfoot{} % clear footer
+\fancyfoot[LE,RO]{\thepage} % page at left on even and right on odd pages
+%\usepackage[bottom]{footmisc}
+\renewcommand{\thefootnote}{\roman{footnote}}
+
+% Multiline quotation
+\usepackage{csquotes}
+
+%Alternative headings and titles
+\usepackage{titlesec}
+\usepackage{titletoc}
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+%\titleformat*{\subsubsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\normalsize\bfseries}
+\titleformat*{\subparagraph}{\normalsize\bfseries}
+%changing paragraph formatting
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%Paragraph Indentation
+\setlength\parindent{0pt}
+
+%Line spacing
+\usepackage{setspace}
+\setstretch{1.5}
+
+%Including & formatting abstract section
+\usepackage{abstract}
+\renewcommand{\abstractnamefont}{\normalfont\Large\bfseries}
+
+% Abbreviations 
+\usepackage[nohyperlinks]{acronym}
+
+%Appendices
+\usepackage[title,toc,page]{appendix}
+\newcommand\listappendixname{List of Appendices}
+\newcommand\appcaption[1]{\addcontentsline{app}{section}{#1}}
+\newcommand\appsubcaption[1]{\addcontentsline{app}{subsection}{#1}}
+\makeatletter
+\newcommand\listofappendices{\section*{\listappendixname}\@starttoc{app}}
+\makeatother
+
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\refname}{References}
+
+\begin{document}
+
+\includepdf[pages=1,scale=1]{Front_page/front_page.pdf}
+\includepdf[pages=2,scale=1]{Front_page/front_page.pdf}
+
+\setcounter{page}{1}
+
+\subfile{Sections/0_abstract.tex}
+\clearpage
+
+% \subfile{Sections/0_acknowledgments.tex}
+% \clearpage
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\subfile{Sections/0_acronyms.tex}
+\clearpage
+
+%\subfile{Sections/1_test_section}
+%\clearpage
+
+\subfile{Sections/1_introduction}
+\clearpage
+
+\subfile{Sections/2_Background}
+\clearpage
+
+\subfile{Sections/3_state-of-the-art}
+\clearpage
+
+\subfile{Sections/4_methods}
+\clearpage
+
+\subfile{Sections/5_results}
+\clearpage
+
+\subfile{Sections/6_discussion}
+\clearpage
+
+\subfile{Sections/7_conclusion}
+\clearpage
+
+%\addcontentsline{toc}{section}{References} 
+
+\bibliography{Bibliography.bib}{}\label{references}
+\bibliographystyle{apacite}
+
+\clearpage
+
+\begin{appendices}
+%\listofappendices
+%\clearpage
+\appendix
+
+\subfile{Appendices/Example_appendix.tex}
+\clearpage
+
+\end{appendices}
+
+\end{document}
