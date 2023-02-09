@@ -2,17 +2,19 @@
 % This template was created by a master's student Alina Steshenko in 2022. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt, table, twoside]{article}
+\documentclass[12pt, a4paper, table]{article}
 
-%UTF8-koding av Unicode for å kode norske bokstaver
+% Higher quality font encoding
+\usepackage[T1]{fontenc}
+
+% UTF8-koding av Unicode for å kode norske bokstaver
 \usepackage[utf8]{inputenc}
 
 % Font similar to Calibri (uncomment for Times New Roman)
 \usepackage[sfdefault]{carlito}
 
-%Setting document-size (margins) 
-\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm, bindingoffset=2cm]{geometry}
-
+% Setting document-size (margins) 
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2.5cm]{geometry}
 
 % Graphics
 \usepackage{graphicx,wrapfig,lipsum}
@@ -134,9 +136,9 @@
 % \subfile{Sections/0_acknowledgments.tex}
 % \clearpage
 
-\tableofcontents
-\listoffigures
-\listoftables
+\clearpage\tableofcontents
+\clearpage\listoffigures
+\clearpage\listoftables
 
 \subfile{Sections/0_acronyms.tex}
 \clearpage
